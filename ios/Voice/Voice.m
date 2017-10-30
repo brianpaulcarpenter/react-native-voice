@@ -38,23 +38,23 @@
     
     NSError* audioSessionError = nil;
     self.audioSession = [AVAudioSession sharedInstance];
-    [self.audioSession setCategory:AVAudioSessionCategoryRecord error:&audioSessionError];
+    //[self.audioSession setCategory:AVAudioSessionCategoryRecord error:&audioSessionError];
 
 
-    if (audioSessionError != nil) {
-        [self sendResult:RCTMakeError([audioSessionError localizedDescription], nil, nil) :nil :nil :nil];
-        return;
-    }
-    [self.audioSession setMode:AVAudioSessionModeMeasurement error:&audioSessionError];
-    if (audioSessionError != nil) {
-        [self sendResult:RCTMakeError([audioSessionError localizedDescription], nil, nil) :nil :nil :nil];
-        return;
-    }
-    [self.audioSession setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:&audioSessionError];
-    if (audioSessionError != nil) {
-        [self sendResult:RCTMakeError([audioSessionError localizedDescription], nil, nil) :nil :nil :nil];
-        return;
-    }
+    //if (audioSessionError != nil) {
+    //    [self sendResult:RCTMakeError([audioSessionError localizedDescription], nil, nil) :nil :nil :nil];
+    //    return;
+    //}
+    //[self.audioSession setMode:AVAudioSessionModeMeasurement error:&audioSessionError];
+    //if (audioSessionError != nil) {
+    //    [self sendResult:RCTMakeError([audioSessionError localizedDescription], nil, nil) :nil :nil :nil];
+    //    return;
+    //}
+    //[self.audioSession setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:&audioSessionError];
+    //if (audioSessionError != nil) {
+    //    [self sendResult:RCTMakeError([audioSessionError localizedDescription], nil, nil) :nil :nil :nil];
+    //    return;
+    //}
     
     
     self.recognitionRequest = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
@@ -151,7 +151,7 @@
 - (void) teardown {
     [self.recognitionTask cancel];
     self.recognitionTask = nil;
-    [self.audioSession setCategory:AVAudioSessionCategoryAmbient error:nil];
+    //[self.audioSession setCategory:AVAudioSessionCategoryAmbient error:nil];
     self.audioSession = nil;
 
     
