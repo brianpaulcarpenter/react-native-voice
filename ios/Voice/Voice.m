@@ -143,7 +143,7 @@
         [self sendEventWithName:@"onSpeechPartialResults" body:@{@"value":transcriptions} ];
     }
     if (isFinal != nil) {
-        [self sendEventWithName:@"onSpeechRecognized" body:@true];
+        [self sendEventWithName:@"onSpeechRecognized" body:@{@"value":@[bestTranscription]} ];
     }
 }
 
